@@ -1,4 +1,3 @@
-import 'package:country/data/dto/country/country_data.dart';
 import 'package:country/data/dto/country/country_response.dart';
 import 'package:country/utils/urls.dart';
 import 'package:dio/dio.dart';
