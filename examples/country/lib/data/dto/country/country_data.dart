@@ -6,18 +6,14 @@ part 'country_data.g.dart';
 @JsonSerializable()
 class CountryData {
   final String name;
-  final String capital;
-  final String region;
-  final String subregion;
-  final String nativeName;
-  final String alpha2Code;
+  @JsonKey(name: 'Iso2')
+  final String? iso2;
+  @JsonKey(name: 'Iso3')
+  final String? iso3;
 
   CountryData({
-    required this.capital,
-    required this.region,
-    required this.subregion,
-    required this.nativeName,
-    required this.alpha2Code,
+    required this.iso2,
+    required this.iso3,
     required this.name,
   });
 

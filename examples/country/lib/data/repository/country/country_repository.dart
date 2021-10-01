@@ -10,6 +10,6 @@ class CountryRepository {
 
   /// Return all countries
   Future<Iterable<Country>> getAllCountries() => _client.getAll().then(
-        (value) => value.map(mapCountry),
+        (value) => value.data.map(mapCountry),
       );
 }

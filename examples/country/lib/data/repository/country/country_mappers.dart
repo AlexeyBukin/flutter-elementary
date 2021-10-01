@@ -5,11 +5,7 @@ import 'package:country/utils/urls.dart';
 /// Map Country from CountryData
 Country mapCountry(CountryData data) {
   return Country(
-    capital: data.capital,
-    region: data.region,
-    subregion: data.subregion,
-    nativeName: data.nativeName,
-    flag: AppUrls.getFlagByCode(data.alpha2Code.toLowerCase()),
+    flag: AppUrls.getFlagByCode(data.iso2?.toLowerCase()),
     name: data.name,
   );
 }

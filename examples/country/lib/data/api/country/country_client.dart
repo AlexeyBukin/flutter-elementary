@@ -1,4 +1,5 @@
 import 'package:country/data/dto/country/country_data.dart';
+import 'package:country/data/dto/country/country_response.dart';
 import 'package:country/utils/urls.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
@@ -11,5 +12,5 @@ abstract class CountryClient {
 
   /// Получение списка адресов пользователя
   @GET(AppUrls.all)
-  Future<List<CountryData>> getAll();
+  Future<CountryResponse> getAll();
 }

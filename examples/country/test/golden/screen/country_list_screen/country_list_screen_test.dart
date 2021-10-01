@@ -14,10 +14,6 @@ void main() {
   const widget = CountryListScreen();
   final _countries = [
     Country(
-      capital: 'capital',
-      region: 'region',
-      subregion: 'subregion',
-      nativeName: 'nativeName',
       flag: AppUrls.getFlagByCode('ru'),
       name: 'Russian Federation',
     ),
