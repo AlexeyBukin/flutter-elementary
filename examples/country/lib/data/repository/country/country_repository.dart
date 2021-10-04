@@ -13,7 +13,7 @@ class CountryRepository {
   Future<Iterable<Country>> getAllCountries() async {
     final response = await _client.getAll();
 
-    if (!response.isError) throw GetAllCountriesException(response.msg);
+    if (response.isError) throw GetAllCountriesException(response.msg);
 
     return response.data.map(mapCountryCodeData);
   }
