@@ -1,22 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'country_data.dart';
+part of 'country_code_data.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-CountryData _$CountryDataFromJson(Map<String, dynamic> json) {
-  return CountryData(
-    iso2: json['Iso2'] as String?,
-    iso3: json['Iso3'] as String?,
+CountryCodeData _$CountryCodeDataFromJson(Map<String, dynamic> json) {
+  return CountryCodeData(
     name: json['name'] as String,
+    code: json['code'] as String,
   );
 }
 
-Map<String, dynamic> _$CountryDataToJson(CountryData instance) =>
+Map<String, dynamic> _$CountryCodeDataToJson(CountryCodeData instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'Iso2': instance.iso2,
-      'Iso3': instance.iso3,
+      'code': instance.code,
     };

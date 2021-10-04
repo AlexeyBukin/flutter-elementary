@@ -14,18 +14,21 @@ class _CountryClient implements CountryClient {
   String? baseUrl;
 
   @override
-  Future<CountryResponse> getAll() async {
+  Future<CountryListResponse<CountryCodeData>> getAll() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<CountryResponse>(
+        _setStreamType<CountryListResponse<CountryCodeData>>(
             Options(method: 'GET', headers: <String, dynamic>{}, extra: _extra)
                 .compose(_dio.options,
-                    'https://countriesnow.space/api/v0.1/countries/iso',
+                    'https://countriesnow.space/api/v0.1/countries/codes',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = CountryResponse.fromJson(_result.data!);
+    final value = CountryListResponse<CountryCodeData>.fromJson(
+      _result.data!,
+      (json) => CountryCodeData.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 

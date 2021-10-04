@@ -6,19 +6,23 @@ part of 'country_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-CountryResponse _$CountryResponseFromJson(Map<String, dynamic> json) {
-  return CountryResponse(
-    error: json['error'] as bool,
+CountryListResponse<T> _$CountryListResponseFromJson<T extends CountryData>(
+  Map<String, dynamic> json,
+  T Function(Object? json) fromJsonT,
+) {
+  return CountryListResponse<T>(
+    successful: json['error'] as bool,
     msg: json['msg'] as String,
-    data: (json['data'] as List<dynamic>)
-        .map((e) => CountryData.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    data: (json['data'] as List<dynamic>).map(fromJsonT),
   );
 }
 
-Map<String, dynamic> _$CountryResponseToJson(CountryResponse instance) =>
+Map<String, dynamic> _$CountryListResponseToJson<T extends CountryData>(
+  CountryListResponse<T> instance,
+  Object? Function(T value) toJsonT,
+) =>
     <String, dynamic>{
-      'error': instance.error,
+      'error': instance.successful,
       'msg': instance.msg,
-      'data': instance.data,
+      'data': instance.data.map(toJsonT).toList(),
     };

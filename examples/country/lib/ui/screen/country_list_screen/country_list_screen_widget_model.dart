@@ -8,16 +8,8 @@ import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-/// Factory for [CountryListScreenWidgetModel]
-CountryListScreenWidgetModel countryListScreenWidgetModelFactory(
-  BuildContext context,
-) {
-  final model = context.read<CountryListScreenModel>();
-  final theme = context.read<ThemeWrapper>();
-  return CountryListScreenWidgetModel(model, theme);
-}
-
 /// Widget Model for [CountryListScreen]
+
 class CountryListScreenWidgetModel
     extends WidgetModel<CountryListScreen, CountryListScreenModel>
     implements ICountryListWidgetModel {
@@ -70,6 +62,15 @@ class CountryListScreenWidgetModel
       _countryListState.error(e, previousData);
     }
   }
+}
+
+/// Factory for [CountryListScreenWidgetModel]
+CountryListScreenWidgetModel countryListScreenWidgetModelFactory(
+  BuildContext context,
+) {
+  final model = context.read<CountryListScreenModel>();
+  final theme = context.read<ThemeWrapper>();
+  return CountryListScreenWidgetModel(model, theme);
 }
 
 /// Interface of [CountryListScreenWidgetModel]

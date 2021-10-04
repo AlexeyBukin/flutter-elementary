@@ -1,3 +1,4 @@
+import 'package:country/data/dto/country/country_code_data.dart';
 import 'package:country/data/dto/country/country_response.dart';
 import 'package:country/utils/urls.dart';
 import 'package:dio/dio.dart';
@@ -9,7 +10,7 @@ part 'country_client.g.dart';
 abstract class CountryClient {
   factory CountryClient(Dio dio, {String baseUrl}) = _CountryClient;
 
-  /// Получение списка адресов пользователя
-  @GET(AppUrls.all)
-  Future<CountryResponse> getAll();
+  /// Get list of countries with codes.
+  @GET(AppUrls.countryCodes)
+  Future<CountryListResponse<CountryCodeData>> getAll();
 }

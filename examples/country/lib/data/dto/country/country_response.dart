@@ -3,21 +3,34 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'country_response.g.dart';
 
-/// DTO for country.
-@JsonSerializable()
-class CountryResponse {
-  final bool error;
+/// Response for country api.
+@JsonSerializable(genericArgumentFactories: true)
+class CountryListResponse<T extends CountryData> {
+  @JsonKey(name: 'error')
+  final bool successful;
   final String msg;
-  final List<CountryData> data;
+  final Iterable<T> data;
 
-  CountryResponse({
-    required this.error,
+  CountryListResponse({
+    required this.successful,
     required this.msg,
     required this.data,
   });
 
-  factory CountryResponse.fromJson(Map<String, dynamic> json) =>
-      _$CountryResponseFromJson(json);
+  factory CountryListResponse.fromJson(
+    Map<String, dynamic> json,
+    T Function(Object? json) fromJson,
+  ) =>
+      _$CountryListResponseFromJson(
+        json,
+        fromJson,
+      );
 
-  Map<String, dynamic> toJson() => _$CountryResponseToJson(this);
+  Map<String, dynamic> toJson(
+    T Function(Object? json) fromJson,
+  ) =>
+      _$CountryListResponseToJson(
+        this,
+        fromJson,
+      );
 }
