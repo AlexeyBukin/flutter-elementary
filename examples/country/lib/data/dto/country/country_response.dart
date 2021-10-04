@@ -7,12 +7,12 @@ part 'country_response.g.dart';
 @JsonSerializable(genericArgumentFactories: true)
 class CountryListResponse<T extends CountryData> {
   @JsonKey(name: 'error')
-  final bool successful;
+  final bool isError;
   final String msg;
   final Iterable<T> data;
 
   CountryListResponse({
-    required this.successful,
+    required this.isError,
     required this.msg,
     required this.data,
   });
