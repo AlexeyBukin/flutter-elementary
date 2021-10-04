@@ -11,7 +11,7 @@ CountryListResponse<T> _$CountryListResponseFromJson<T extends CountryData>(
   T Function(Object? json) fromJsonT,
 ) {
   return CountryListResponse<T>(
-    successful: json['error'] as bool,
+    isError: json['error'] as bool,
     msg: json['msg'] as String,
     data: (json['data'] as List<dynamic>).map(fromJsonT),
   );
@@ -22,7 +22,7 @@ Map<String, dynamic> _$CountryListResponseToJson<T extends CountryData>(
   Object? Function(T value) toJsonT,
 ) =>
     <String, dynamic>{
-      'error': instance.successful,
+      'error': instance.isError,
       'msg': instance.msg,
       'data': instance.data.map(toJsonT).toList(),
     };
