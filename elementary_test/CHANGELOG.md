@@ -6,3 +6,7 @@ Infrastructure for testing widget model.
 
 Example of using.
 Add documentation for api.
+
+## 0.0.3-dev.6
+
+chore: changed the supported `mocktail` version to `^0.2.0`.
