@@ -1,6 +1,6 @@
 # Changelog
 
-0.0.3-dev.5
+## 0.0.3-dev.5
 
 * Model behaviour tested.
 * Widget behaviour tested.
