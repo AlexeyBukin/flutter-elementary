@@ -1,6 +1,9 @@
+# Changelog
+
 ## next
 
-* Add tests for Model.
+* Model behaviour tested.
+* Widget behaviour tested.
 
 ## 0.0.3-dev.4
 
