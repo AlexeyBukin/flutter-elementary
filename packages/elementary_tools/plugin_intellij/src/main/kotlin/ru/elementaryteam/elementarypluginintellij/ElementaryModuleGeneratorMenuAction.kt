@@ -23,6 +23,22 @@ class ElementaryModuleGeneratorMenuAction : FlutterSdkAction() {
         root: PubRoot?,
         context: DataContext
     ) {
+
+//        val activateAction = ActionManager.getInstance().getAction(ACTIVATE_ACTION_ID) as FlutterSdkAction
+//        activateAction.startCommand(project, sdk, root, context)
+
+        val status = ElementaryCliActivateChecker().check(
+            project,
+            sdk,
+            root,
+        ).get()
+
+        print("status: $status")
+//        FlutterMessages.(
+//            "Error while generating files",
+//            "`elementary_tool generate` returned: $exitCode", project
+//        )
+
         val view = LangDataKeys.IDE_VIEW.getData(context) ?: return
         val dir = view.orChooseDirectory ?: return
 
